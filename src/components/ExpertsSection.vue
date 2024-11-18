@@ -98,7 +98,7 @@ export default {
           name: '李世俊医生',
           title: '康复理疗专家',
           image: doctor2Img,
-          description: '拥有丰富的运动员康复经验，曾服务多支职业篮球队',
+          description: '拥有丰富的运动员康复经验，曾服务��支职业篮球队',
           specialties: ['物理治疗', '功能训练', '康复计划'],
           contact: 'QQ：2925766038'
         },
@@ -445,5 +445,58 @@ export default {
   .expert-avatar {
     margin-bottom: 20px;
   }
+}
+
+.modal-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+  text-align: right;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+}
+
+.confirm-btn {
+  padding: 12px 35px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 12px rgba(52, 152, 219, 0.2);
+}
+
+.confirm-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.confirm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.confirm-btn:hover::before {
+  left: 100%;
+}
+
+.confirm-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
 }
 </style> 

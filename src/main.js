@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router'
 import { ObserveVisibility } from 'vue-observe-visibility'
 
 const app = createApp(App)
 
-// 注册全局指令
 app.directive('observe-visibility', {
   beforeMount: (el, binding) => {
     el.$observer = new IntersectionObserver((entries) => {
@@ -21,4 +21,5 @@ app.directive('observe-visibility', {
   }
 })
 
+app.use(router)
 app.mount('#app') 

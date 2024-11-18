@@ -1,73 +1,24 @@
 <template>
   <div class="app">
     <nav-bar />
-    <hero />
-    <injuries-section />
-    <prevention-section />
-    <recovery-section />
-    <experts-section />
-    <faq-section />
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="quick-links">
-            <h3>快速导航</h3>
-            <ul>
-              <li v-for="(link, index) in navLinks" :key="index">
-                <a :href="link.href">{{ link.text }}</a>
-              </li>
-            </ul>
-          </div>
-          <div class="contact">
-            <h3>联系我们</h3>
-            <p>电话：400-XXX-XXXX</p>
-            <p>邮箱：contact@basketball-health.com</p>
-          </div>
-          <div class="disclaimer">
-            <p>免责声明：本网站内容仅供参考，具体伤病处理请咨询专业医生。</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
-import Hero from './components/Hero.vue'
-import InjuriesSection from './components/InjuriesSection.vue'
-import PreventionSection from './components/PreventionSection.vue'
-import RecoverySection from './components/RecoverySection.vue'
-import ExpertsSection from './components/ExpertsSection.vue'
-import FaqSection from './components/FaqSection.vue'
 
 export default {
   name: 'App',
   components: {
-    NavBar,
-    Hero,
-    InjuriesSection,
-    PreventionSection,
-    RecoverySection,
-    ExpertsSection,
-    FaqSection
-  },
-  data() {
-    return {
-      navLinks: [
-        { href: '#home', text: '首页' },
-        { href: '#injuries', text: '常见伤病' },
-        { href: '#prevention', text: '预防技巧' },
-        { href: '#recovery', text: '康复步骤' },
-        { href: '#experts', text: '专业指导' },
-        { href: '#faq', text: 'FAQ' }
-      ]
-    }
+    NavBar
   }
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
 :root {
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
@@ -95,37 +46,98 @@ body {
   padding: 0 20px;
 }
 
-.footer {
-  background-color: #2c3e50;
-  color: white;
-  padding: 40px 0;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-.quick-links ul {
-  list-style: none;
-}
-
-.quick-links a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.quick-links a:hover {
-  color: var(--primary-color);
-}
-
-.disclaimer {
-  grid-column: 1 / -1;
+.section-title {
   text-align: center;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 50px;
+  font-size: 2.5rem;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.page-section {
+  padding: 100px 0;
+  background: linear-gradient(to bottom, #ffffff, var(--background-color));
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* 文本选择样式 */
+::selection {
+  background: var(--primary-color);
+  color: white;
 }
 </style> 

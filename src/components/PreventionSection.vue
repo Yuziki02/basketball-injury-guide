@@ -116,7 +116,8 @@ export default {
 .prevention-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  gap: 30px;
+  padding: 20px;
 }
 
 .prevention-item {
@@ -126,7 +127,7 @@ export default {
   box-shadow: var(--shadow);
   transition: transform 0.3s;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
 }
 
 .prevention-item.visible {
@@ -180,18 +181,19 @@ export default {
 }
 
 .video-btn {
+  width: 100%;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
   background: var(--primary-color);
   color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 25px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
-  width: 100%;
 }
 
 .video-btn:hover {
-  background: darken(var(--primary-color), 10%);
+  background: var(--secondary-color);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -199,7 +201,7 @@ export default {
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;

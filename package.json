@@ -14,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "vue": "^3.3.4",
-    "vue-observe-visibility": "^1.0.0"
+    "vue-observe-visibility": "^1.0.0",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",
